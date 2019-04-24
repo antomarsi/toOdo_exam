@@ -1,21 +1,21 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
-import 'antd/dist/antd.css';
-import Home from './pages/Home';
+import { Provider } from "react-redux";
 
-const Routes: React.SFC<{}> = props => {
+import Home from "./pages/Home";
+import store from "./store";
+
+const App = () => {
   return (
-    <HashRouter>
-      <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/add-todo" component={Home}/>
-      </Switch>
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/add-todo" component={Home} />
+        </Switch>
+      </HashRouter>
+    </Provider>
   );
-};
-
-const App: React.SFC<{}> = () => {
-  return <Routes />;
 };
 
 export default App;
