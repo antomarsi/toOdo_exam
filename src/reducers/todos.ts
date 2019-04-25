@@ -7,11 +7,13 @@ export interface State {
 }
 
 export const initialState: State = {
-  todos: [ {
+  todos: [
+    {
       id: 0,
       name: "TESTE",
       completed: false
-  }]
+    }
+  ]
 };
 
 export function reducer(state: State = initialState, action: AnyAction) {
@@ -26,6 +28,11 @@ export function reducer(state: State = initialState, action: AnyAction) {
             ? { ...todo, completed: !todo.completed }
             : todo
         )
+      };
+    case ActionTypes.REMOVE_TODO:
+      return {
+        ...state,
+        todos: [...state.todos.filter(todo => action.payload.id !== todo)]
       };
     default:
       return state;

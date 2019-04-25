@@ -1,16 +1,25 @@
 import * as React from "react";
-import { Layout, Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox } from "antd";
 import { Field, FieldProps, FormikProps, FormikActions, Formik } from "formik";
 import { connect } from "react-redux";
 import * as Yup from "yup";
 import { addTodo } from "../actions/todos";
 import { Dispatch, bindActionCreators } from "redux";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import styledComponents from "styled-components";
 
 interface FormValues {
   name: string;
   completed: boolean;
 }
+
+const ReturnLink = styledComponents(Link)`
+position: relative;
+bottom: 3.5rem;
+float: right;
+`;
+
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -21,8 +30,22 @@ const validationSchema = Yup.object().shape({
 
 const TodoForm: React.SFC<any> = props => {
   console.log(props);
+  const formItemLayout = {
+    labelCol: {
+      xs: { span: 24 },
+      sm: { span: 8 },
+    },
+    wrapperCol: {
+      xs: { span: 24 },
+      sm: { span: 16 },
+    },
+  };
+
   return (
-    <Layout.Content>
+    <div>
+      <ReturnLink to="/">
+        <Button type="primary" shape="circle" icon="arrow-left" size="large" />
+      </ReturnLink>
       <Formik
         initialValues={{ name: "", completed: false }}
         validationSchema={validationSchema}
@@ -32,7 +55,7 @@ const TodoForm: React.SFC<any> = props => {
           actions.setSubmitting(false);
         }}
         render={(formikBag: FormikProps<FormValues>) => (
-          <Form>
+          <Form {...formItemLayout}>
             <Field
               name="name"
               render={({ field, form }: FieldProps<FormValues>) => (
@@ -61,7 +84,7 @@ const TodoForm: React.SFC<any> = props => {
           </Form>
         )}
       />
-    </Layout.Content>
+    </div>
   );
 };
 
