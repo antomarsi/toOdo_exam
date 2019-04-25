@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { bindActionCreators, Dispatch } from "redux";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 
 import { getTodos } from "../../selectors/todos";

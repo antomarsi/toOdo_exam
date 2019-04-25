@@ -1,13 +1,6 @@
 import * as React from "react";
 import { Layout, Form, Input, Button, Checkbox } from "antd";
-import {
-  Field,
-  FieldProps,
-  FormikProps,
-  withFormik,
-  FormikActions,
-  Formik
-} from "formik";
+import { Field, FieldProps, FormikProps, FormikActions, Formik } from "formik";
 import { connect } from "react-redux";
 import * as Yup from "yup";
 import { addTodo } from "../actions/todos";
