@@ -19,8 +19,8 @@ type Props = StateProps & DispatchProps;
 
 class TodoList extends Component<Props> {
   render() {
-    const { todos, onTodoClicked } = this.props;
-    return <ul>{todos.map(todo => todo.name)}</ul>;
+    const { todos } = this.props;
+    return <ul>{todos.map(todo => (<li>{todo.name}</li>))}</ul>;
   }
 }
 const mapStateToProps = (state: State) => ({

@@ -17,7 +17,7 @@ export const initialState: State = {
 export function reducer(state: State = initialState, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.ADD_TODO:
-      return { ...state, todos: [state.todos, action.payload.todo] };
+      return { ...state, todos: [...state.todos, action.payload.todo] };
     case ActionTypes.TOGGLE_TODO:
       return {
         ...state,
