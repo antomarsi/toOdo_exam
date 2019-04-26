@@ -1,14 +1,17 @@
 import * as React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, DatePicker, Switch } from "antd";
 import { Field, FieldProps, FormikProps, FormikActions, Formik } from "formik";
 import * as Yup from "yup";
 import Todo from "../models/Todo";
+import moment from "moment";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
+  description: Yup.string(),
+  due_date: Yup.date(),
   completed: Yup.boolean()
 });
 
@@ -57,7 +60,32 @@ const TodoForm: React.SFC<Props> = props => {
                       {...field}
                       placeholder="Task description"
                     />
-                    {form.touched.name && form.errors.name && form.errors.name}
+                    {form.touched.description && form.errors.description && form.errors.description}
+                  </Form.Item>
+                )}
+              />
+              <Field
+                name="due_date"
+                render={({ field, form }: FieldProps<Todo>) => (
+                  <Form.Item label="Due Date">
+                    <DatePicker
+                      defaultValue={moment(formikBag.values.due_date)}
+                      onChange={e => formikBag.setFieldValue(field.name, e ? e : null)}
+                    />
+                    {form.touched.due_date && form.errors.due_date && form.errors.due_date}
+                  </Form.Item>
+                )}
+              />
+              <Field
+                name="completed"
+                render={({ field, form }: FieldProps<Todo>) => (
+                  <Form.Item label="Completed">
+                    <Switch
+                      defaultChecked={field.value}
+                      onChange={checked =>
+                        formikBag.setFieldValue(field.name, checked)
+                      }
+                    />
                   </Form.Item>
                 )}
               />

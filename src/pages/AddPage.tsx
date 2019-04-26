@@ -26,7 +26,7 @@ class AddPage extends React.Component<OwnProps> {
     actions.setSubmitting(false);
   };
 
-  initialValues: Todo = { id: 0, name: "", description: "", completed: false };
+  initialValues: Todo = { id: 0, name: "", completed: false };
 
   componentDidMount() {}
 
