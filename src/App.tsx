@@ -7,7 +7,8 @@ import styledComponents from "styled-components";
 
 import HomePage from "./pages/HomePage";
 import store from "./store";
-import AddTodoPage from "./pages/AddTodoPage";
+import AddPage from "./pages/AddPage";
+import EditPage from "./pages/EditPage";
 
 const TopBarTitle = styledComponents(Title)`
   color: #FFFFFF !important;
@@ -25,11 +26,14 @@ const App = () => {
             <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
               <Switch>
                 <Route path="/" exact component={HomePage} />
-                <Route path="/add-todo" component={AddTodoPage} />
-                <Route path="/edit-todo/:id" component={AddTodoPage} />
+                <Route path="/add-todo" component={AddPage} />
+                <Route path="/edit-todo/:id" component={EditPage} />
               </Switch>
             </div>
           </Layout.Content>
+          <Layout.Footer>
+            
+          </Layout.Footer>
         </Layout>
       </HashRouter>
     </Provider>

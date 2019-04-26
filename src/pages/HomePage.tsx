@@ -1,8 +1,8 @@
 import { Button } from "antd";
 import * as React from "react";
-import TodoList from "../components/TodoList";
 import { Link } from 'react-router-dom';
 import styledComponents from 'styled-components';
+import TodoList from "../components/TodoList";
 
 const AddLink = styledComponents(Link)`
 position: relative;

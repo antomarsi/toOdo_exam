@@ -1,4 +1,5 @@
 import Todo from "../models/Todo";
+
 export enum ActionTypes {
   ADD_TODO = "@todos/ADD_TODO",
   UPDATE_TODO = "@todos/UPDATE_TODO",
@@ -6,7 +7,6 @@ export enum ActionTypes {
   TOGGLE_TODO = "@todos/TOGGLE_TODO"
 }
 
-let nextId = 1;
 export interface AddTodoAction {
   type: ActionTypes.ADD_TODO;
   payload: { todo: Todo };
@@ -28,18 +28,17 @@ export interface RemoveTodoAction {
 }
 
 export const addTodo = (
-  name: string,
-  completed: boolean = false
+  todo: Todo
 ): AddTodoAction => {
   return {
     type: ActionTypes.ADD_TODO,
-    payload: { todo: { id: nextId++, name, completed } }
+    payload: { todo }
   };
 };
 
 
-export const updateTodo = (todo: Todo): RemoveTodoAction => {
-  return { type: ActionTypes.REMOVE_TODO, payload: todo };
+export const updateTodo = (todo: Todo): UpdateTodoAction => {
+  return { type: ActionTypes.UPDATE_TODO, payload: { todo }};
 };
 
 
