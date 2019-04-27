@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/toOdo_page/static/css/main.be601951.chunk.css",
+    "main.js": "/toOdo_page/static/js/main.5afc0fa0.chunk.js",
+    "main.js.map": "/toOdo_page/static/js/main.5afc0fa0.chunk.js.map",
+    "runtime~main.js": "/toOdo_page/static/js/runtime~main.e9ea0ecc.js",
+    "runtime~main.js.map": "/toOdo_page/static/js/runtime~main.e9ea0ecc.js.map",
+    "static/css/2.6466deae.chunk.css": "/toOdo_page/static/css/2.6466deae.chunk.css",
+    "static/js/2.65c5be93.chunk.js": "/toOdo_page/static/js/2.65c5be93.chunk.js",
+    "static/js/2.65c5be93.chunk.js.map": "/toOdo_page/static/js/2.65c5be93.chunk.js.map",
+    "index.html": "/toOdo_page/index.html",
+    "precache-manifest.efccec8c8fd12b5b841c9d600ff14843.js": "/toOdo_page/precache-manifest.efccec8c8fd12b5b841c9d600ff14843.js",
+    "service-worker.js": "/toOdo_page/service-worker.js",
+    "static/css/2.6466deae.chunk.css.map": "/toOdo_page/static/css/2.6466deae.chunk.css.map",
+    "static/css/main.be601951.chunk.css.map": "/toOdo_page/static/css/main.be601951.chunk.css.map"
+  }
+}
