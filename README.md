@@ -1,14 +1,3 @@
-This project is a pratical exam for toOdo.
-It's a *TODO LIST* app and need to the following things:
- * React-redux
- * styled-components
- * React context
- * React-router (uma rota pra exibir todos e uma rota pra editar um todo)
- * Formik (com validação usando yup)
- * e que esses todos sejam persistidos em local storage, e que esse app seja em typescript
- * Typescript
- * Ant Design
-## Available Scripts
 # toOdo Exam
 
 This project is a exam to the toOdo Software
@@ -39,6 +28,20 @@ or
 $ yarn
 ```
 
+## The depedencies
+
+ * React-redux
+ * styled-components
+ * React context
+ * React-router
+ * Formik
+ * Yup
+ * Typescript
+ * Ant Design
+ * reselect (for better filtering)
+ * moment (For date display and formatting)
+ * redux-logger (for showing the actions in the console)
+
 ## Running in Development (locally)
 
 To run the project, just run the following command:
@@ -63,6 +66,7 @@ $ yarn build
 
 To publish you project to your [GithubPages](https://pages.github.com/), check if its is enabled in your git repository, after the deploy, a new branch `gh-pages` will be created (if you don't have it).
 Run the following command to send a version to your [GithubPages](https://pages.github.com/):
+Note: The gh-pages don't work so well using the Windows Command Prompt, use the Ubuntu Subsystem terminal if necessary.
 
 ```
 $ npm run deploy
