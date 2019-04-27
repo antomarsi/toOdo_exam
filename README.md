@@ -9,44 +9,67 @@ It's a *TODO LIST* app and need to the following things:
  * Typescript
  * Ant Design
 ## Available Scripts
+# toOdo Exam
 
-In the project directory, you can run:
+This project is a exam to the toOdo Software
 
-### `npm start`
+If you want to access the online version: https://antomarsi.github.io/toOdo_exam/
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+To get start the project, just clone the repository and follow the instructions below.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You need to have [Node.js](https://nodejs.org) or [Yarn](https://yarnpkg.com/) on your computer.
 
-### `npm run build`
+```
+node +8
+npm +6
+yarn +1.15
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installing the depedencies
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+After cloning the repo, go to the project folder and run the following command to download all the depedencies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ npm install
+or
+$ yarn
+```
 
-### `npm run eject`
+## Running in Development (locally)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run the project, just run the following command:
+```
+$ npm start
+or
+$ yarn start
+```
+After the project is compiled, a new page will open in your browser to the URL `http://localhost:3000`, the project has hot-reload, so any update in the code will update the page.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Building
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To build your project, just run the command `build`, a folder `build` will be created in the project folter, the `build` command will run automatically if you `deploy` the project.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+$ npm run build
+or
+$ yarn build
+```
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To publish you project to your [GithubPages](https://pages.github.com/), check if its is enabled in your git repository, after the deploy, a new branch `gh-pages` will be created (if you don't have it).
+Run the following command to send a version to your [GithubPages](https://pages.github.com/):
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+$ npm run deploy
+or
+$ yarn deploy
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

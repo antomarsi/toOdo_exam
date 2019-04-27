@@ -10,14 +10,18 @@ import { Row, Col, Card, Icon, Switch, Popconfirm, Typography } from "antd";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
 import Meta from "antd/lib/card/Meta";
+import moment from "moment";
 
 interface OwnProps extends RouteComponentProps<{}> {
   toggleTodo: (id: number) => void;
   removeTodo: (id: number) => void;
   todos: Todo[];
 }
-
 class TodoList extends Component<OwnProps> {
+  isAfterDueDate(due_date: Date | undefined): boolean {
+    return due_date !== undefined && moment(due_date).isSameOrBefore(moment());
+  }
+
   render() {
     const { todos, removeTodo, toggleTodo } = this.props;
     return (
@@ -25,8 +29,20 @@ class TodoList extends Component<OwnProps> {
         <Row gutter={16} type="flex" justify="center">
           {todos.length > 0 &&
             todos.map(todo => (
-              <Col key={todo.id} xs={24} sm={12} md={8} lg={4} style={{padding:"1rem"}}>
+              <Col
+                key={todo.id}
+                xs={24}
+                sm={12}
+                md={12}
+                lg={8}
+                style={{ padding: "1rem" }}
+              >
                 <Card
+                  style={{
+                    backgroundColor: this.isAfterDueDate(todo.due_date)
+                      ? "#F4846C"
+                      : ""
+                  }}
                   bordered={true}
                   actions={[
                     <Switch
@@ -35,7 +51,7 @@ class TodoList extends Component<OwnProps> {
                         toggleTodo(todo.id);
                       }}
                     />,
-                    <Link to={`/edit-todo/${todo.id}`}>
+                    <Link title="Edit" to={`/edit-todo/${todo.id}`}>
                       <Icon type="edit" />
                     </Link>,
                     <Popconfirm
@@ -45,6 +61,7 @@ class TodoList extends Component<OwnProps> {
                       cancelText="No"
                     >
                       <Icon
+                        title="Delete"
                         type="delete"
                         className="ant-typography-danger"
                         theme="filled"
@@ -52,7 +69,22 @@ class TodoList extends Component<OwnProps> {
                     </Popconfirm>
                   ]}
                 >
-                  <Meta title={todo.name} description={todo.description} />
+                  <Meta
+                    title={
+                      <div>
+                        <Typography.Text>{todo.name}</Typography.Text>
+                        {todo.due_date && (
+                          <Typography.Text
+                            type="secondary"
+                            style={{ float: "right" }}
+                          >
+                            {moment(todo.due_date).format("YYYY-MM-DD")}
+                          </Typography.Text>
+                        )}
+                      </div>
+                    }
+                    description={todo.description}
+                  />
                 </Card>
               </Col>
             ))}
